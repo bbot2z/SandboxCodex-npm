@@ -1,122 +1,95 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+import "./App.css";
 
-function App() {
-  const [count, setCount] = useState(0)
+const aiModels = [
+  "OpenAI",
+  "Claude",
+  "Gemini",
+  "Grok",
+  "DeepSeek",
+  "Qwen",
+  "Mistral",
+  "Llama",
+];
 
+const features = [
+  "AI Agent",
+  "Browser IDE",
+  "Linux Terminal",
+  "Docker Sandbox",
+  "Live Preview",
+  "Git Integration",
+  "File Manager",
+  "Plugin Marketplace",
+];
+
+export default function App() {
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+    <div className="app">
+      <header className="navbar">
+        <div className="logo">Sandbox CodeX</div>
 
-      <div className="ticks"></div>
+        <nav>
+          <a href="#features">Features</a>
+          <a href="#models">AI</a>
+          <a href="#roadmap">Roadmap</a>
+          <a href="#docs">Docs</a>
+        </nav>
+      </header>
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
+      <section className="hero">
+        <span className="badge">🚀 v0.1 Alpha</span>
+
+        <h1>
+          Next Generation
+          <br />
+          AI Sandbox IDE
+        </h1>
+
+        <p>
+          Build, Run, Test and Deploy applications directly from your browser.
+          Mobile First. AI Native. Secure Sandbox.
+        </p>
+
+        <div className="buttons">
+          <button className="primary">Get Started</button>
+          <button className="secondary">Documentation</button>
         </div>
       </section>
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+      <section id="features" className="grid">
+        {features.map((item) => (
+          <div className="card" key={item}>
+            <h3>{item}</h3>
+            <p>Powerful tools built for modern developers.</p>
+          </div>
+        ))}
+      </section>
+
+      <section id="models">
+        <h2>Supported AI Models</h2>
+
+        <div className="chips">
+          {aiModels.map((item) => (
+            <span key={item}>{item}</span>
+          ))}
+        </div>
+      </section>
+
+      <section id="roadmap">
+        <h2>Roadmap</h2>
+
+        <ul>
+          <li>✅ Landing Page</li>
+          <li>🔄 Browser IDE</li>
+          <li>🤖 AI Agent</li>
+          <li>🐳 Docker Sandbox</li>
+          <li>🚀 Version 1.0</li>
+        </ul>
+      </section>
+
+      <footer>
+        © 2026 Sandbox CodeX • Mobile First • Open Source
+      </footer>
+    </div>
+  );
 }
-
-export default App
