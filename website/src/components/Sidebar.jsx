@@ -1,49 +1,35 @@
 const files = [
-  "index.html",
-  "style.css",
-  "script.js",
-  "package.json",
-  "README.md",
+  { name: "index.html", type: "html" },
+  { name: "style.css", type: "css" },
+  { name: "script.js", type: "js" },
 ];
 
-export default function Sidebar() {
+export default function Sidebar({ current, setCurrent }) {
   return (
     <aside
       style={{
         width: "220px",
         background: "#111827",
         color: "#fff",
-        padding: "12px",
         borderRight: "1px solid #222",
-        overflowY: "auto",
+        padding: "10px",
       }}
     >
-      <h3
-        style={{
-          marginBottom: "12px",
-          fontSize: "14px",
-          color: "#9ca3af",
-        }}
-      >
-        EXPLORER
-      </h3>
+      <h3 style={{ marginBottom: 10 }}>EXPLORER</h3>
 
       {files.map((file) => (
         <div
-          key={file}
+          key={file.name}
+          onClick={() => setCurrent(file.name)}
           style={{
             padding: "8px",
             cursor: "pointer",
             borderRadius: "6px",
+            background:
+              current === file.name ? "#374151" : "transparent",
           }}
-          onMouseEnter={(e) =>
-            (e.currentTarget.style.background = "#1f2937")
-          }
-          onMouseLeave={(e) =>
-            (e.currentTarget.style.background = "transparent")
-          }
         >
-          📄 {file}
+          📄 {file.name}
         </div>
       ))}
     </aside>
